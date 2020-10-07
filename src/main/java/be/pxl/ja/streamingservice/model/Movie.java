@@ -1,12 +1,17 @@
 package be.pxl.ja.streamingservice.model;
 import java.time.LocalDate;
 
-public class Movie {
+public class Movie extends Content implements Playable{
     private String title;
     private String director;
     private LocalDate releaseDate;
     private int duration;
     private Genre genre;
+    private Rating maturityRating;
+
+    public Movie(String title,Rating maturityRating){
+        super(title,maturityRating);
+    }
 
     public Genre getGenre() {
         return genre;
@@ -14,18 +19,6 @@ public class Movie {
 
     public void setGenre(Genre genre) {
         this.genre = genre;
-    }
-
-    public Movie(String title){
-        this.title = title;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getDirector() {
@@ -53,7 +46,12 @@ public class Movie {
     }
 
     @Override
-    public String toString() {
-        return title + " (" + releaseDate.getYear() + ")";
+    public void play() {
+        System.out.println("Playing " + this);
+    }
+
+    @Override
+    public void pause() {
+        System.out.println("Pausing " + this);
     }
 }
