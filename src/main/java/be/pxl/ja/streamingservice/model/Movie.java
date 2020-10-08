@@ -2,12 +2,11 @@ package be.pxl.ja.streamingservice.model;
 import java.time.LocalDate;
 
 public class Movie extends Content implements Playable{
-    private String title;
+    public static final int LONG_PLAYING_TIME = 135;
     private String director;
     private LocalDate releaseDate;
     private int duration;
     private Genre genre;
-    private Rating maturityRating;
 
     public Movie(String title,Rating maturityRating){
         super(title,maturityRating);
@@ -37,6 +36,14 @@ public class Movie extends Content implements Playable{
         this.releaseDate = releaseDate;
     }
 
+    public boolean isLongPlayingTime () {
+        return duration > LONG_PLAYING_TIME;
+    }
+
+    public String getPlayingTime () {
+        return "2 u 30 min";
+
+    }
     public int getDuration() {
         return duration;
     }

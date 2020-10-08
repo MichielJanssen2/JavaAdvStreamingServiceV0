@@ -7,11 +7,14 @@ public enum Rating {
     MATURE("Mature",16);
 
     private String displayName;
-    private int age;
+    private int mimimumAge;
 
-    Rating(String displayName, int age){
+    Rating(String displayName, int mimimumAge){
         this.displayName = displayName;
-        this.age = age;
+        this.mimimumAge = mimimumAge;
     }
 
+    public int getMimimumAge() {
+        return mimimumAge;
+    }
 }
